@@ -134,7 +134,8 @@ pre_configure_target() {
                              -skip qtwebglplugin
                              -skip qtwebview
                              -skip qtwinextras
-                             -skip qtx11extras"
+                             -skip qtx11extras
+                             -kms"
 
   # Build with OpenGL or OpenGLES support
   if [ "${OPENGL_SUPPORT}" = "yes" ]; then
@@ -274,6 +275,7 @@ post_makeinstall_target() {
   if [ "${OPENGLES_SUPPORT}" = "yes" ]; then
     if [ ${DISPLAYSERVER} = "no" ]; then
       cp -PR ${PKG_QT5_SYSROOT_PATH}/lib/libQt5EglFSDeviceIntegration.so* ${INSTALL}/usr/lib
+      cp -PR ${PKG_QT5_SYSROOT_PATH}/lib/libQt5EglFsKmsSupport.so*        ${INSTALL}/usr/lib
       cp -PR ${PKG_QT5_SYSROOT_PATH}/plugins/egldeviceintegrations        ${INSTALL}/usr/plugins
     fi
   fi
