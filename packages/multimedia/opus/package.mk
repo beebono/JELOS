@@ -25,7 +25,7 @@ case ${DEVICE} in
   *)
     PKG_SHARED_LIBRARY="--disable-shared"
   ;;
-fi
+esac
 
 PKG_CONFIGURE_OPTS_TARGET="--enable-static \
                            $PKG_SHARED_LIBRARY \
